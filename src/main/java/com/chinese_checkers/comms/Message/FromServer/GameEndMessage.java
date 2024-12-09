@@ -34,6 +34,6 @@ public class GameEndMessage extends Message
 	@Override
 	public String toString()
 	{
-		return "GameEndMessage: (reason: " + reason + ")";
+		return "GameEndMessage: [reason: " + reason + "]";
 	}
 }

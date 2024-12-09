@@ -12,6 +12,6 @@ public class RequestRefreshMessage extends Message
 	@Override
 	public String toString()
 	{
-		return "";
+		return "RequestRefreshMessage";
 	}
 }

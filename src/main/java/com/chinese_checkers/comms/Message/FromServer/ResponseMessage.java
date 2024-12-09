@@ -3,6 +3,8 @@ package com.chinese_checkers.comms.Message.FromServer;
 import com.chinese_checkers.comms.Message.Message;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+
 public class ResponseMessage extends Message
 {
 	String toWhatAction;

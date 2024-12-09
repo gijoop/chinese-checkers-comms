@@ -61,7 +61,7 @@ public abstract class Message {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String json = objectMapper.writeValueAsString(this);
-            System.out.println("[DEBUG:Message] " + json);
+            // System.out.println("[DEBUG:Message] " + json);
             return json;
         } catch (Exception e) {
             e.printStackTrace();

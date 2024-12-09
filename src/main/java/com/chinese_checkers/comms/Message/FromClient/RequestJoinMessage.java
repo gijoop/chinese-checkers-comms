@@ -33,6 +33,6 @@ public class RequestJoinMessage extends Message
 	@Override
 	public String toString()
 	{
-		return "";
+		return "RequestJoinMessage";
 	}
 }
