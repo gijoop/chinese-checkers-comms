@@ -1,10 +1,9 @@
 package com.chinese_checkers.comms.Message.FromServer;
 
 import com.chinese_checkers.comms.Message.Message;
-import com.chinese_checkers.comms.Message.MoveMessage;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PlayerMoveMessage extends Message
+public class MovePlayerMessage extends Message
 {
 	// public members go brrrrrr (viva la c++)
 	@JsonProperty("playerID")
@@ -18,7 +17,7 @@ public class PlayerMoveMessage extends Message
 	@JsonProperty("r")
 	public int r;
 
-	public PlayerMoveMessage()
+	public MovePlayerMessage()
 	{
 		this.type = "move_player";
 		this.playerID = -1;
@@ -28,9 +27,9 @@ public class PlayerMoveMessage extends Message
 		this.r = 0;
 	}
 
-	public PlayerMoveMessage(int playerID, int pawnID, int s, int q, int r)
+	public MovePlayerMessage(int playerID, int pawnID, int s, int q, int r)
 	{
-		this.type = "player_move";
+		this.type = "move_player";
 		this.playerID = playerID;
 		this.pawnID = pawnID;
 		this.s = s;

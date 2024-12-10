@@ -8,6 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ResponseMessage extends Message
 {
 	String toWhatAction;
+
+	// TODO: replace with enum in the future
+	// message can be:
+	// - "success"
+	// - "failure"
+	// - "error"
 	String message;
 
 	public ResponseMessage()

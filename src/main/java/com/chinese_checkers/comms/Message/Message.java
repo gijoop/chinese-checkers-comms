@@ -1,12 +1,10 @@
 package com.chinese_checkers.comms.Message;
 
 import com.chinese_checkers.comms.Message.FromClient.DisconnectMessage;
+import com.chinese_checkers.comms.Message.FromClient.MoveRequestMessage;
 import com.chinese_checkers.comms.Message.FromClient.RequestJoinMessage;
 import com.chinese_checkers.comms.Message.FromClient.RequestRefreshMessage;
-import com.chinese_checkers.comms.Message.FromServer.GameEndMessage;
-import com.chinese_checkers.comms.Message.FromServer.GameStartMessage;
-import com.chinese_checkers.comms.Message.FromServer.NextRoundMessage;
-import com.chinese_checkers.comms.Message.FromServer.ResponseMessage;
+import com.chinese_checkers.comms.Message.FromServer.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -28,11 +26,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     @JsonSubTypes.Type(value = GameEndMessage.class, name = "game_end"),
     @JsonSubTypes.Type(value = NextRoundMessage.class, name = "next_round"),
     @JsonSubTypes.Type(value = ResponseMessage.class, name = "response"),
+    @JsonSubTypes.Type(value = MovePlayerMessage.class, name = "move_player"),
+    @JsonSubTypes.Type(value = SelfDataMessage.class, name = "self_data"),
 
     // FromClient messages
     @JsonSubTypes.Type(value = DisconnectMessage.class, name = "disconnect"),
     @JsonSubTypes.Type(value = RequestJoinMessage.class, name = "request_join"),
-    @JsonSubTypes.Type(value = RequestRefreshMessage.class, name = "request_refresh")
+    @JsonSubTypes.Type(value = RequestRefreshMessage.class, name = "request_refresh"),
+    @JsonSubTypes.Type(value = MoveRequestMessage.class, name = "move_request")
 
     // Add more message types as needed
 })
