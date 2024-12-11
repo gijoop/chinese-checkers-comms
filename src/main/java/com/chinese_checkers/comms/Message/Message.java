@@ -17,10 +17,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     property = "type"
 )
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = MoveMessage.class, name = "move"),
-    @JsonSubTypes.Type(value = JoinMessage.class, name = "join"),
-    @JsonSubTypes.Type(value = AcknowledgeMessage.class, name = "acknowledge"),
-
     // FromServer messages
     @JsonSubTypes.Type(value = GameStartMessage.class, name = "game_start"),
     @JsonSubTypes.Type(value = GameEndMessage.class, name = "game_end"),
