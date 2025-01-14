@@ -10,31 +10,27 @@ public class MovePlayerMessage extends Message
 	public int playerID;
 	@JsonProperty("pawnID")
 	public int pawnID;
-	@JsonProperty("s")
-	public int s;
-	@JsonProperty("q")
-	public int q;
-	@JsonProperty("r")
-	public int r;
+	@JsonProperty("x")
+	public int x;
+	@JsonProperty("y")
+	public int y;
 
 	public MovePlayerMessage()
 	{
 		this.type = "move_player";
 		this.playerID = -1;
 		this.pawnID = -1;
-		this.s = 0;
-		this.q = 0;
-		this.r = 0;
+		this.x = 0;
+		this.y = 0;
 	}
 
-	public MovePlayerMessage(int playerID, int pawnID, int s, int q, int r)
+	public MovePlayerMessage(int playerID, int pawnID, int x, int y)
 	{
 		this.type = "move_player";
 		this.playerID = playerID;
 		this.pawnID = pawnID;
-		this.s = s;
-		this.q = q;
-		this.r = r;
+		this.x = x;
+		this.y = y;
 	}
 
 	@Override

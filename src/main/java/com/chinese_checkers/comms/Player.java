@@ -23,6 +23,10 @@ public class Player {
         this(null, id, null);
     }
 
+    public Player() {
+        this(null, -1, null);
+    }
+
     public String getName() {
         return name;
     }
@@ -35,11 +39,15 @@ public class Player {
         this.color = color;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public PawnColor getPawnColor() {
         return color;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }

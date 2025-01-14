@@ -7,6 +7,12 @@ public class Pawn {
     private Player owner;
     private Integer id;
 
+    public Pawn() {
+        this.color = null;
+        this.owner = null;
+        this.id = idCounter++;
+    }
+
     public Pawn(Player owner) {
         this.color = owner.getPawnColor();
         this.owner = owner;
@@ -17,11 +23,19 @@ public class Pawn {
         return color;
     }
 
+    public void setColor(Player.PawnColor color) {
+        this.color = color;
+    }
+
     public Player getOwner() {
         return owner;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public String toString() {
+        return "Pawn [id=" + id + ", color=" + color + ", owner=" + owner.getName() + "]";
     }
 }

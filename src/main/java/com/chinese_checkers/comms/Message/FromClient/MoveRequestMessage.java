@@ -8,34 +8,30 @@ public class MoveRequestMessage extends Message
 	// public members go brrrrrr (viva la c++)
 	@JsonProperty("pawnID")
 	public int pawnID;
-	@JsonProperty("s")
-	public int s;
-	@JsonProperty("q")
-	public int q;
-	@JsonProperty("r")
-	public int r;
+	@JsonProperty("x")
+	public int x;
+	@JsonProperty("y")
+	public int y;
 
 	public MoveRequestMessage()
 	{
 		this.type = "move_request";
 		this.pawnID = -1;
-		this.s = 0;
-		this.q = 0;
-		this.r = 0;
+		this.x = 0;
+		this.y = 0;
 	}
 
-	public MoveRequestMessage(int pawnID, int s, int q, int r)
+	public MoveRequestMessage(int pawnID, int x, int y)
 	{
 		this.type = "move_request";
 		this.pawnID = pawnID;
-		this.s = s;
-		this.q = q;
-		this.r = r;
+		this.x = x;
+		this.y = y;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "MoveRequestMessage [pawn=" + pawnID + ": s=" + s + ", q=" + q + ", r=" + r + "]";
+		return "MoveRequestMessage [pawn=" + pawnID + ": x=" + x + ", y=" + y + "]";
 	}
 }
