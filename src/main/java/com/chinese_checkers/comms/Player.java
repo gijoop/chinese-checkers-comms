@@ -2,7 +2,7 @@ package com.chinese_checkers.comms;
 
 public class Player {
     public enum PawnColor {
-        RED, BLUE, GREEN, YELLOW, BLACK, WHITE
+        RED, BLUE, GREEN, YELLOW, BLACK, WHITE, NONE
     }
 
     private String name;
@@ -39,7 +39,7 @@ public class Player {
         this.color = color;
     }
 
-    public PawnColor getPawnColor() {
+    public PawnColor getColor() {
         return color;
     }
 

@@ -1,5 +1,6 @@
 package com.chinese_checkers.comms;
 
+
 public class Pawn {
     public static int idCounter = 100;
 
@@ -14,7 +15,7 @@ public class Pawn {
     }
 
     public Pawn(Player owner) {
-        this.color = owner.getPawnColor();
+        this.color = owner.getColor();
         this.owner = owner;
         this.id = idCounter++;
     }

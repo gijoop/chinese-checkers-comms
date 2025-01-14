@@ -55,4 +55,13 @@ public class Position {
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
+
+    public static Position fromString(String str) {
+        str = str.substring(1, str.length() - 1).strip();
+        String[] parts = str.split(",");
+        for (int i = 0; i < parts.length; i++) {
+            parts[i] = parts[i].strip();
+        }
+        return new Position(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+    }
 }
