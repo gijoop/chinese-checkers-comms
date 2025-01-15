@@ -1,18 +1,46 @@
 package com.chinese_checkers.comms;
 
 public class Player {
-    public enum PawnColor {
-        RED, BLUE, GREEN, YELLOW, BLACK, WHITE, NONE
+    public enum Corner {
+        UPPER,
+        UPPER_RIGHT,
+        LOWER_RIGHT,
+        LOWER,
+        UPPER_LEFT,
+        LOWER_LEFT,
+        NONE;
+        
+        // Method to get the opposite corner
+        public Corner getOpposite() {
+            switch (this) {
+                case UPPER:
+                    return LOWER;
+                case UPPER_LEFT:
+                    return LOWER_RIGHT;
+                case LOWER_LEFT:
+                    return UPPER_RIGHT;
+                case LOWER:
+                    return UPPER;
+                case LOWER_RIGHT:
+                    return UPPER_LEFT;
+                case UPPER_RIGHT:
+                    return LOWER_LEFT;
+                case NONE:
+                    return NONE;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + this);
+            }
+        }
     }
 
     private String name;
-    private PawnColor color;
+    private Corner corner;
     private int id;
 
-    public Player(String name, int id, PawnColor color) {
+    public Player(String name, int id, Corner corner) {
         this.name = name;
         this.id = id;
-        this.color = color;
+        this.corner = corner;
     }
 
     public Player(String name, int id) {
@@ -35,12 +63,12 @@ public class Player {
         this.name = name;
     }
 
-    public void setColor(PawnColor color) {
-        this.color = color;
+    public void setCorner(Corner corner) {
+        this.corner = corner;
     }
 
-    public PawnColor getColor() {
-        return color;
+    public Corner getCorner() {
+        return corner;
     }
 
     public void setId(int id) {

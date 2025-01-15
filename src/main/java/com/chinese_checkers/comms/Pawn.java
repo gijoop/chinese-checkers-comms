@@ -1,31 +1,19 @@
 package com.chinese_checkers.comms;
 
-
 public class Pawn {
     public static int idCounter = 100;
 
-    private Player.PawnColor color;
     private Player owner;
     private Integer id;
 
     public Pawn() {
-        this.color = null;
         this.owner = null;
         this.id = idCounter++;
     }
 
     public Pawn(Player owner) {
-        this.color = owner.getColor();
         this.owner = owner;
         this.id = idCounter++;
-    }
-
-    public Player.PawnColor getColor() {
-        return color;
-    }
-
-    public void setColor(Player.PawnColor color) {
-        this.color = color;
     }
 
     public Player getOwner() {
@@ -37,6 +25,6 @@ public class Pawn {
     }
 
     public String toString() {
-        return "Pawn [id=" + id + ", color=" + color + ", owner=" + owner.getName() + "]";
+        return "Pawn [id=" + id + ", owner=" + owner.getName() + "]";
     }
 }

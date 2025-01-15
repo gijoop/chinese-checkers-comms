@@ -1,8 +1,6 @@
 package com.chinese_checkers.comms.Message.FromServer;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.chinese_checkers.comms.Pawn;
 import com.chinese_checkers.comms.Position;
