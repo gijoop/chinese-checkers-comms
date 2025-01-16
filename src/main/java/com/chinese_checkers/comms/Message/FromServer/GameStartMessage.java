@@ -22,6 +22,7 @@ public class GameStartMessage extends Message
 	{
 		this.type = "game_start";
 		this.pawns = new HashMap<Position, Pawn>();
+		this.boardSize = 0;
 	}
 
 	public GameStartMessage(int boardSize)
@@ -45,6 +46,16 @@ public class GameStartMessage extends Message
 	public void addPawn(Position position, Pawn pawn)
 	{
 		pawns.put(position, pawn);
+	}
+
+	public void setBoardSize(int boardSize)
+	{
+		this.boardSize = boardSize;
+	}
+
+	public int getBoardSize()
+	{
+		return boardSize;
 	}
 
 	@Override
