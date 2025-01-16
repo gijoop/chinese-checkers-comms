@@ -30,6 +30,10 @@ public class CommandParser {
 		commands.get(msgType).add(action);
 	}
 
+	public ConcurrentHashMap<String, List<Consumer<Message>>> getCommands() {
+		return commands;
+	}
+
 	public void clearCommands() {
 		commands.clear();
 	}
