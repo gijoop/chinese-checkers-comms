@@ -4,6 +4,7 @@ import com.chinese_checkers.comms.Message.FromClient.DisconnectMessage;
 import com.chinese_checkers.comms.Message.FromClient.MoveRequestMessage;
 import com.chinese_checkers.comms.Message.FromClient.RequestJoinMessage;
 import com.chinese_checkers.comms.Message.FromClient.RequestRefreshMessage;
+import com.chinese_checkers.comms.Message.FromClient.EndTurnMessage;
 import com.chinese_checkers.comms.Message.FromServer.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -29,7 +30,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     @JsonSubTypes.Type(value = DisconnectMessage.class, name = "disconnect"),
     @JsonSubTypes.Type(value = RequestJoinMessage.class, name = "request_join"),
     @JsonSubTypes.Type(value = RequestRefreshMessage.class, name = "request_refresh"),
-    @JsonSubTypes.Type(value = MoveRequestMessage.class, name = "move_request")
+    @JsonSubTypes.Type(value = MoveRequestMessage.class, name = "move_request"),
+    @JsonSubTypes.Type(value = EndTurnMessage.class, name = "end_turn")
 
     // Add more message types as needed
 })
