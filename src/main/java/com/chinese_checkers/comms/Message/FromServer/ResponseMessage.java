@@ -7,14 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ResponseMessage extends Message
 {
+	public enum Status
+	{
+		SUCCESS, FAILURE, ERROR, GAME_OVER
+	}
+
+	@JsonProperty
 	String toWhatAction;
 
-	// TODO: replace with enum in the future
-	// message can be:
-	// - "success"
-	// - "failure"
-	// - "error"
 	String message;
+	Status status;
 
 	public ResponseMessage()
 	{
@@ -23,11 +25,12 @@ public class ResponseMessage extends Message
 		this.message = "";
 	}
 
-	public ResponseMessage(String toWhatAction, String message)
+	public ResponseMessage(String toWhatAction, Status status, String message)
 	{
 		this.type = "response";
 		this.toWhatAction = toWhatAction; // TODO: replace with enum in the future
 		this.message = message;
+		this.status = status;
 	}
 
 	@JsonProperty("toWhatAction")
@@ -52,6 +55,18 @@ public class ResponseMessage extends Message
 	public void setMessage(String message)
 	{
 		this.message = message;
+	}
+
+	@JsonProperty("status")
+	public Status getStatus()
+	{
+		return status;
+	}
+
+	@JsonProperty("status")
+	public void setStatus(Status status)
+	{
+		this.status = status;
 	}
 
 	@Override
