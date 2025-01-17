@@ -15,8 +15,11 @@ public class GameStartMessage extends Message
 	@JsonDeserialize(keyUsing = PositionKeyDeserializer.class)
 	private HashMap<Position, Pawn> pawns;
 
-	@JsonProperty
+	@JsonProperty("board_size")
 	private int boardSize;
+
+	@JsonProperty("variant")
+	private String variant;
 
 	public GameStartMessage()
 	{
@@ -38,6 +41,14 @@ public class GameStartMessage extends Message
 		this.pawns = pawns;
 	}
 
+	public GameStartMessage(String variant)
+	{
+		this.type = "game_start";
+		this.pawns = new HashMap<Position, Pawn>();
+		this.variant = variant;
+		this.boardSize = 0;
+	}
+
 	public HashMap<Position, Pawn> getPawns()
 	{
 		return pawns;
@@ -48,14 +59,26 @@ public class GameStartMessage extends Message
 		pawns.put(position, pawn);
 	}
 
+	@JsonProperty("board_size")
+	public int getBoardSize()
+	{
+		return boardSize;
+	}
+
+	@JsonProperty("variant")
+	public String getVariant()
+	{
+		return variant;
+	}
+
 	public void setBoardSize(int boardSize)
 	{
 		this.boardSize = boardSize;
 	}
 
-	public int getBoardSize()
+	public void setVariant(String variant)
 	{
-		return boardSize;
+		this.variant = variant;
 	}
 
 	@Override
