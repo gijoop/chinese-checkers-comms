@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AnnounceWinnerMessage extends Message
 {
-	int player_id;
-	int place;
+	@JsonProperty
+	private int player_id;
+	@JsonProperty
+	private int place;
 
 	public AnnounceWinnerMessage()
 	{
@@ -32,6 +34,16 @@ public class AnnounceWinnerMessage extends Message
 	public int getPlace()
 	{
 		return place;
+	}
+
+	public void setPlayerID(int player_id)
+	{
+		this.player_id = player_id;
+	}
+
+	public void setPlace(int place)
+	{
+		this.place = place;
 	}
 
 	@Override
