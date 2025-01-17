@@ -1,17 +1,15 @@
 package com.chinese_checkers.comms.Message;
 
-import com.chinese_checkers.comms.Message.FromClient.DisconnectMessage;
-import com.chinese_checkers.comms.Message.FromClient.MoveRequestMessage;
-import com.chinese_checkers.comms.Message.FromClient.RequestJoinMessage;
-import com.chinese_checkers.comms.Message.FromClient.RequestRefreshMessage;
-import com.chinese_checkers.comms.Message.FromClient.EndTurnMessage;
+import com.chinese_checkers.comms.Message.FromClient.*;
 import com.chinese_checkers.comms.Message.FromServer.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
+/**
+ * Abstract class representing a message in the Chinese Checkers game.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.EXISTING_PROPERTY,
@@ -24,13 +22,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     @JsonSubTypes.Type(value = NextRoundMessage.class, name = "next_round"),
     @JsonSubTypes.Type(value = ResponseMessage.class, name = "response"),
     @JsonSubTypes.Type(value = MovePlayerMessage.class, name = "move_player"),
-    @JsonSubTypes.Type(value = SelfDataMessage.class, name = "self_data"),
     @JsonSubTypes.Type(value = AnnounceWinnerMessage.class, name = "announce_winner"),
 
     // FromClient messages
     @JsonSubTypes.Type(value = DisconnectMessage.class, name = "disconnect"),
     @JsonSubTypes.Type(value = RequestJoinMessage.class, name = "request_join"),
-    @JsonSubTypes.Type(value = RequestRefreshMessage.class, name = "request_refresh"),
     @JsonSubTypes.Type(value = MoveRequestMessage.class, name = "move_request"),
     @JsonSubTypes.Type(value = EndTurnMessage.class, name = "end_turn")
 
@@ -40,13 +36,38 @@ public abstract class Message {
     @JsonProperty("type")
     protected String type;
 
-    public abstract String toString();
-
+    /**
+     * Returns the type of the message.
+     *
+     * @return the type of the message
+     */
     public String getType() {
         return type;
     }
 
-    public static Message fromJson(String json){
+    /**
+     * Converts the message to a JSON string.
+     *
+     * @return the JSON string representation of the message
+     */
+    public String toJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String json = objectMapper.writeValueAsString(this);
+            return json;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Creates a message object from a JSON string.
+     *
+     * @param json the JSON string representation of the message
+     * @return the message object
+     */
+    public static Message fromJson(String json) {
         System.out.println(json);
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -57,15 +78,11 @@ public abstract class Message {
         }
     }
 
-    public String toJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            String json = objectMapper.writeValueAsString(this);
-            // System.out.println("[DEBUG:Message] " + json);
-            return json;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+    /**
+     * Returns a string representation of the message.
+     *
+     * @return a string representation of the message
+     */
+    @Override
+    public abstract String toString();
 }
