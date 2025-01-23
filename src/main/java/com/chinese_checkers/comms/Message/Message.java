@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     @JsonSubTypes.Type(value = NextRoundMessage.class, name = "next_round"),
     @JsonSubTypes.Type(value = ResponseMessage.class, name = "response"),
     @JsonSubTypes.Type(value = MovePlayerMessage.class, name = "move_player"),
+    @JsonSubTypes.Type(value = SelfDataMessage.class, name = "self_data"),
     @JsonSubTypes.Type(value = AnnounceWinnerMessage.class, name = "announce_winner"),
 
     // FromClient messages
