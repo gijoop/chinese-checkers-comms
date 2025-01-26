@@ -43,9 +43,9 @@ public class Player {
         }
     }
 
-    private String name;
-    private Corner corner;
-    private int id;
+    protected String name;
+    protected Corner corner;
+    protected int id;
 
     /**
      * Constructs a Player with the specified name, id, and corner.
